@@ -10,6 +10,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * <p>
+ *  图片上传
+ * </p>
+ *
+ * @author huling
+ * @since 2020-12-22
+ */
 @Service
 public class UploadImgImp implements IUploadImg {
     @Override
