@@ -6,3 +6,13 @@ spring:
     url: jdbc:mysql://localhost:3306/qinggua?serverTimezone=GMT%2B8&useUnicode=true&amp&characterEncoding=utf-8
     username: root
     password: Huling1025
+
+# log for mysql
+logging:
+  level:
+    com:
+      yznu:
+        qinggua: debug
+
+#mybatis-plus:
+#  mapper-locations: classpath:mapper.admin/*.xml
