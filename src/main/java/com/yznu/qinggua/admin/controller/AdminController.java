@@ -20,7 +20,7 @@ import java.util.List;
  * @since 2020-12-22
  */
 @RestController
-@RequestMapping("/admin/admin")
+@RequestMapping("/admin")
 public class AdminController {
     @Autowired
     IAdminService iAdminService;
@@ -29,7 +29,7 @@ public class AdminController {
     * 获取管理员列表
     * @return
     * */
-    @GetMapping("/")
+    @GetMapping("/admin")
     public Result getAdminList() {
         try{
             List<Admin> admins = iAdminService.list();
@@ -48,7 +48,7 @@ public class AdminController {
     * @param id
     * @return
     * */
-    @GetMapping("/{id}")
+    @GetMapping("/admin/{id}")
     public Result getAdmin(@PathVariable int id) {
         try{
             Admin admin = iAdminService.getById(id);
@@ -67,7 +67,7 @@ public class AdminController {
     * @param admin
     * @return
     * */
-    @PostMapping("/")
+    @PostMapping("/admin")
     public Result addAdmin(@RequestBody Admin admin) {
         try{
             // 超级管理员 flag = 1,其他的管理员 flag = 0
@@ -96,7 +96,7 @@ public class AdminController {
     * @param admin
     * @return
     * */
-    @PutMapping("/")
+    @PutMapping("/admin")
     public Result updateAdmin(@RequestBody Admin admin) {
         try{
             boolean flag = iAdminService.updateById(admin);
@@ -115,7 +115,7 @@ public class AdminController {
     * @param id
     * @return
     * */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     public Result deleteAdmin(@PathVariable int id) {
         try{
             boolean flag = iAdminService.removeById(id);
@@ -134,7 +134,7 @@ public class AdminController {
     * @param ids
     * @return
     * */
-    @DeleteMapping("/")
+    @DeleteMapping("/admin")
     public Result deleteAdmins(@RequestBody List<Integer> ids) {
         try{
             boolean flag = iAdminService.removeByIds(ids);

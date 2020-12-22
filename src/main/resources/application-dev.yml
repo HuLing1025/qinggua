@@ -7,6 +7,13 @@ spring:
     username: root
     password: Huling1025
 
+  # the file size
+  servlet:
+    multipart:
+      # the max size of one file
+      max-file-size: 10MB
+      # once request the max size of file
+      max-request-size: 50MB
 # log for mysql
 logging:
   level:

@@ -19,7 +19,7 @@ import java.util.List;
  * @since 2020-12-22
  */
 @RestController
-@RequestMapping("/admin/user")
+@RequestMapping("/admin")
 public class UserController {
     @Autowired
     IUserService iUserService;
@@ -28,7 +28,7 @@ public class UserController {
     * 获取用户列表
     * @return
     * */
-    @GetMapping("/")
+    @GetMapping("/user")
     public Result getUserList() {
         try{
             List<User> users = iUserService.list();
@@ -47,7 +47,7 @@ public class UserController {
     * @param id
     * @return
     * */
-    @GetMapping("/{id}")
+    @GetMapping("/user/{id}")
     public Result getUserById(@PathVariable String id) {
         try{
             User user = iUserService.getById(id);
@@ -66,7 +66,7 @@ public class UserController {
     * @param
     * @return
     * */
-    @PostMapping("/")
+    @PostMapping("/user")
     public Result addUser(@RequestBody User user) {
         try{
             QueryWrapper<User> queryWrapper = new QueryWrapper<>();
@@ -91,7 +91,7 @@ public class UserController {
     * @param user
     * @return
     * */
-    @PutMapping("/{id}")
+    @PutMapping("/user/{id}")
     public Result updateUser(@PathVariable int id, @RequestBody User user) {
         try{
             boolean flag = iUserService.updateById(user);
@@ -110,7 +110,7 @@ public class UserController {
     * @param id
     * @return
     * */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/user/{id}")
     public Result deleteUser(@PathVariable int id) {
         try{
             boolean flag = iUserService.removeById(id);
@@ -128,7 +128,7 @@ public class UserController {
     * @param ids
     * @return
     * */
-    @DeleteMapping("/")
+    @DeleteMapping("/user")
     public Result deleteUsers(@RequestBody List<Integer> ids) {
         try{
             boolean flag = iUserService.removeByIds(ids);
