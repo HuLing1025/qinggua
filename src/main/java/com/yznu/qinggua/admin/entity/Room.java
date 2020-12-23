@@ -12,12 +12,12 @@ import org.springframework.data.annotation.Id;
  * </p>
  *
  * @author huling
- * @since 2020-12-22
+ * @since 2020-12-23
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class Admin implements Serializable {
+public class Room implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,20 +26,11 @@ public class Admin implements Serializable {
      * */
     @Id
     private int id;
+
     /**
-     * 登录名
+     * 播放厅名称
      */
     private String name;
-
-    /**
-     * 密码
-     */
-    private String pwd;
-
-    /**
-     * 标识
-     */
-    private int flag;
 
 
 }

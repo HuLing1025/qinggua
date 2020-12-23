@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/test")
-public class TestController {
+@RequestMapping("/uoload")
+public class UploadController {
 
     @Autowired
     IUploadImg iUploadImg;

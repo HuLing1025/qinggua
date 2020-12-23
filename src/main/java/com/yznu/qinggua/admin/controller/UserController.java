@@ -24,7 +24,7 @@ public class UserController {
     @Autowired
     IUserService iUserService;
 
-    /*
+    /**
     * 获取用户列表
     * @return
     * */
@@ -35,14 +35,14 @@ public class UserController {
             if(users.size() != 0){
                 return ResponseUtil.success(users, 200, "获取用户列表成功!");
             }else{
-                return ResponseUtil.success(200, "列表为空!");
+                return ResponseUtil.error(400, "列表为空!");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e.getMessage());
         }
     }
 
-    /*
+    /**
     * 根据ID获取用户
     * @param id
     * @return
@@ -54,14 +54,14 @@ public class UserController {
             if(user != null){
                 return ResponseUtil.success(user, 200, "成功!");
             }else{
-                return ResponseUtil.success(400, "未找到该用户");
+                return ResponseUtil.error(400, "未找到该用户");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e.getMessage());
         }
     }
 
-    /*
+    /**
     * 新增用户
     * @param
     * @return
@@ -79,14 +79,14 @@ public class UserController {
             if(flag){
                 return ResponseUtil.success(200, "添加成功!");
             }else{
-                return ResponseUtil.success(500, "添加失败");
+                return ResponseUtil.error(500, "添加失败");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e.getMessage());
         }
     }
 
-    /*
+    /**
     * 修改用户信息
     * @param user
     * @return
@@ -98,14 +98,14 @@ public class UserController {
             if(flag){
                 return ResponseUtil.success(200, "修改成功!");
             }else{
-                return ResponseUtil.success(500, "修改失败");
+                return ResponseUtil.error(500, "修改失败");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e.getMessage());
         }
     }
 
-    /*
+    /**
     * 根据ID删除用户
     * @param id
     * @return
@@ -117,13 +117,13 @@ public class UserController {
             if(flag){
                 return ResponseUtil.success(200, "删除成功!");
             }else{
-                return ResponseUtil.success(500, "删除失败");
+                return ResponseUtil.error(500, "删除失败");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e.getMessage());
         }
     }
-    /*
+    /**
     * 批量删除用户
     * @param ids
     * @return
@@ -135,7 +135,7 @@ public class UserController {
             if(flag){
                 return ResponseUtil.success(200, "批量删除成功!");
             }else{
-                return ResponseUtil.success(500, "批量删除失败");
+                return ResponseUtil.error(500, "批量删除失败");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e.getMessage());

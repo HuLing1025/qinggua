@@ -25,7 +25,7 @@ public class AdminController {
     @Autowired
     IAdminService iAdminService;
 
-    /*
+    /**
     * 获取管理员列表
     * @return
     * */
@@ -36,14 +36,14 @@ public class AdminController {
             if(admins.size() != 0){
                 return ResponseUtil.success(admins, 200, "获取管理员列表成功!");
             }else{
-                return ResponseUtil.success(200, "列表为空!");
+                return ResponseUtil.error(400, "列表为空!");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e);
         }
     }
 
-    /*
+    /**
     * 根据ID获取管理员
     * @param id
     * @return
@@ -55,14 +55,14 @@ public class AdminController {
             if(admin != null){
                 return ResponseUtil.success(admin, 200, "成功!");
             }else{
-                return ResponseUtil.success(400, "未找到该管理员");
+                return ResponseUtil.error(400, "未找到该管理员!");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e);
         }
     }
 
-    /*
+    /**
     * 新增管理员
     * @param admin
     * @return
@@ -78,20 +78,20 @@ public class AdminController {
             queryWrapper.eq("name",admin.getName());
             // 该用户名是否已经注册
             if(iAdminService.getOne(queryWrapper) != null){
-                return ResponseUtil.error(200, "该用户名已经存在!");
+                return ResponseUtil.error(300, "该用户名已经存在!");
             }
             boolean flag = iAdminService.save(admin);
             if(flag){
                 return ResponseUtil.success(200, "添加成功!");
             }else{
-                return ResponseUtil.success(500, "添加失败");
+                return ResponseUtil.error(500, "添加失败!");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e);
         }
     }
 
-    /*
+    /**
     * 修改管理员信息
     * @param admin
     * @return
@@ -103,14 +103,14 @@ public class AdminController {
             if(flag){
                 return ResponseUtil.success(200, "修改成功!");
             }else{
-                return ResponseUtil.success(500, "修改失败");
+                return ResponseUtil.error(500, "修改失败!");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e);
         }
     }
 
-    /*
+    /**
     * 根据ID删除管理员
     * @param id
     * @return
@@ -122,14 +122,14 @@ public class AdminController {
             if(flag){
                 return ResponseUtil.success(200, "删除成功!");
             }else{
-                return ResponseUtil.success(500, "删除失败");
+                return ResponseUtil.error(500, "删除失败!");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e);
         }
     }
 
-    /*
+    /**
     * 批量删除管理员
     * @param ids
     * @return
@@ -141,7 +141,7 @@ public class AdminController {
             if(flag){
                 return ResponseUtil.success(200, "批量删除成功!");
             }else{
-                return ResponseUtil.success(500, "批量删除失败");
+                return ResponseUtil.error(500, "批量删除失败!");
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "错误:" + e);

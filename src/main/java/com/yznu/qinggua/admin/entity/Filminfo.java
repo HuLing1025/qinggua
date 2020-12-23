@@ -1,7 +1,6 @@
 package com.yznu.qinggua.admin.entity;
 
 import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,12 +13,12 @@ import org.springframework.data.annotation.Id;
  * </p>
  *
  * @author huling
- * @since 2020-12-22
+ * @since 2020-12-23
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class User implements Serializable {
+public class Filminfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,39 +29,49 @@ public class User implements Serializable {
     private int id;
 
     /**
-     * 用户名
+     * 影片名称
      */
-    private String name;
+    private String title;
 
     /**
-     * 密码
+     * 导演
      */
-    private String pwd;
+    private String director;
 
     /**
-     * 联系方式
+     * 主演
      */
-    private String tel;
+    private String actors;
 
     /**
-     * E-mail
+     * 国家/地区
      */
-    private String email;
+    private String country;
 
     /**
-     * QQ
+     * 影片类型
      */
-    private String qq;
+    private String type;
 
     /**
-     * 账户金额
+     * 片长(单位ms)
      */
-    private float count;
+    private long duration;
 
     /**
-     * 注册时间
+     * 上映时间
      */
-    private LocalDateTime regtime;
+    private String releasetime;
+
+    /**
+     * 图片
+     */
+    private String image;
+
+    /**
+     * 详细简介
+     */
+    private String details;
 
 
 }
