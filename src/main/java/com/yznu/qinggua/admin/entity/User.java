@@ -49,7 +49,6 @@ public class User implements Serializable {
     /**
      * QQ
      */
-    @TableField("QQ")
     private String qq;
 
     /**
