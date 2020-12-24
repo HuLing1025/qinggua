@@ -1,7 +1,8 @@
 package com.yznu.qinggua.admin.entity;
 
-import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -39,7 +40,7 @@ public class Comment implements Serializable {
     /**
      * 评论时间
      */
-    private LocalDateTime createtime;
+    private Date createtime;
 
 
 }
