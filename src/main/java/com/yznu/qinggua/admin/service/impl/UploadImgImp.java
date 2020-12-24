@@ -46,7 +46,7 @@ public class UploadImgImp implements IUploadImg {
             // 复制文件到指定文件夹
             file.transferTo(destFile);
             result.put("flag", true);
-            result.put("message", "创建成功!");
+            result.put("message", "上传成功!");
             result.put("path", destFileName);
             return result;
         } catch (IOException e) {
