@@ -5,6 +5,8 @@ import com.yznu.qinggua.admin.entity.Seat;
 import com.yznu.qinggua.admin.service.ISeatService;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +20,7 @@ import java.util.List;
  * @author huling
  * @since 2020-12-23
  */
+@Api(tags = "座位操作接口")
 @RestController
 @RequestMapping("/admin")
 public class SeatController {
@@ -29,6 +32,7 @@ public class SeatController {
      * @param rid
      * @return
      * */
+    @ApiOperation(value = "根据播放厅获取座位列表")
     @GetMapping("/seat/{rid}")
     public Result getSeatsByRid(@PathVariable int rid) {
         try{
@@ -51,6 +55,7 @@ public class SeatController {
      * @param seat
      * @retrun
      * */
+    @ApiOperation(value = "新增座位")
     @PostMapping("/seat")
     public Result addSeat(@RequestBody Seat seat) {
         try{
@@ -70,6 +75,7 @@ public class SeatController {
      * @param id
      * @return
      * */
+    @ApiOperation(value = "根据ID删除座位")
     @DeleteMapping("/seat/{id}")
     public Result deleteSeatById(@PathVariable int id) {
         try{
@@ -89,6 +95,7 @@ public class SeatController {
      * @param ids
      * @return
      * */
+    @ApiOperation(value = "批量删除座位")
     @DeleteMapping("/seat")
     public Result deleteSeats(@RequestBody List<Integer> ids) {
         try{

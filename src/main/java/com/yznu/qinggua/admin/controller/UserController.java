@@ -5,6 +5,7 @@ import com.yznu.qinggua.admin.entity.User;
 import com.yznu.qinggua.admin.service.IUserService;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,7 @@ import java.util.List;
  * @author huling
  * @since 2020-12-22
  */
+@Api(tags = "用户操作接口")
 @RestController
 @RequestMapping("/admin")
 public class UserController {

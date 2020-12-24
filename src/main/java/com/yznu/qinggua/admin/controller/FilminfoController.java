@@ -4,6 +4,8 @@ import com.yznu.qinggua.admin.entity.Filminfo;
 import com.yznu.qinggua.admin.service.IFilminfoService;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +19,8 @@ import java.util.List;
  * @author huling
  * @since 2020-12-23
  */
+
+@Api(tags = "电影操作接口")
 @RestController
 @RequestMapping("/admin")
 public class FilminfoController {
@@ -27,6 +31,7 @@ public class FilminfoController {
      * 获取电影列表
      * @retrun
      */
+    @ApiOperation(value = "获取电影列表")
     @GetMapping("/filminfo")
     public Result getFilminfoList() {
         try{
@@ -46,6 +51,7 @@ public class FilminfoController {
      * @param id
      * @return
      * */
+    @ApiOperation(value = "根据ID获取电影")
     @GetMapping("/filminfo/{id}")
     public Result getFilminfoById(@PathVariable int id) {
         try{
@@ -65,6 +71,7 @@ public class FilminfoController {
      * @param filminfo
      * @return
      * */
+    @ApiOperation(value = "添加电影")
     @PostMapping("/filminfo")
     public Result addFilminfo(@RequestBody Filminfo filminfo) {
         try{
@@ -84,6 +91,7 @@ public class FilminfoController {
      * @param filminfo
      * @return
      * */
+    @ApiOperation(value = "修改电影信息")
     @PutMapping("/filminfo")
     public Result updateFilminfo(@RequestBody Filminfo filminfo) {
         try{
@@ -103,6 +111,7 @@ public class FilminfoController {
      * @param id
      * @return
      * */
+    @ApiOperation(value = "根据ID删除电影")
     @DeleteMapping("/filminfo/{id}")
     public Result deleteFilminfoById(@PathVariable int id) {
         try{
@@ -122,6 +131,7 @@ public class FilminfoController {
      * @param ids
      * @return
      * */
+    @ApiOperation(value = "批量删除电影")
     @DeleteMapping("/filminfo")
     public Result deleteFilminfos(@RequestBody List<Integer> ids) {
         try{

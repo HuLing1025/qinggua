@@ -6,6 +6,8 @@ import com.yznu.qinggua.admin.entity.Admin;
 import com.yznu.qinggua.admin.service.IAdminService;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,7 @@ import java.util.List;
  * @author huling
  * @since 2020-12-22
  */
+@Api(tags = "管理员操作接口")
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -29,6 +32,7 @@ public class AdminController {
     * 获取管理员列表
     * @return
     * */
+    @ApiOperation(value = "获取管理员列表")
     @GetMapping("/admin")
     public Result getAdminList() {
         try{
@@ -48,6 +52,7 @@ public class AdminController {
     * @param id
     * @return
     * */
+    @ApiOperation(value = "根据ID获取管理员")
     @GetMapping("/admin/{id}")
     public Result getAdmin(@PathVariable int id) {
         try{
@@ -67,6 +72,7 @@ public class AdminController {
     * @param admin
     * @return
     * */
+    @ApiOperation(value = "新增管理员")
     @PostMapping("/admin")
     public Result addAdmin(@RequestBody Admin admin) {
         try{
@@ -96,6 +102,7 @@ public class AdminController {
     * @param admin
     * @return
     * */
+    @ApiOperation(value = "修改管理员信息")
     @PutMapping("/admin")
     public Result updateAdmin(@RequestBody Admin admin) {
         try{
@@ -115,6 +122,7 @@ public class AdminController {
     * @param id
     * @return
     * */
+    @ApiOperation(value = "根据ID删除管理员")
     @DeleteMapping("/admin/{id}")
     public Result deleteAdmin(@PathVariable int id) {
         try{
@@ -134,6 +142,7 @@ public class AdminController {
     * @param ids
     * @return
     * */
+    @ApiOperation(value = "批量删除管理员")
     @DeleteMapping("/admin")
     public Result deleteAdmins(@RequestBody List<Integer> ids) {
         try{
