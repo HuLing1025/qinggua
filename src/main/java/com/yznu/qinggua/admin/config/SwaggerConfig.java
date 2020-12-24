@@ -39,11 +39,11 @@ public class SwaggerConfig {
                 //页面标题
                 .title("青瓜电影院购票系统API文档")
                 //创建人
-                .contact(new Contact("huling", "https://github.com/HuLing1025", "huling1025@sina.com"))
+                .contact(new Contact("胡令", "https://github.com/HuLing1025/qinggua", "huling1025@sina.com"))
                 //版本号
                 .version("1.0")
                 //描述
-                .description("API 描述")
+                .description("青瓜电影院购票系统API文档")
                 .build();
     }
 }
