@@ -15,11 +15,11 @@ spring:
       # once request the max size of file
       max-request-size: 50MB
 # log for mysql
-logging:
-  level:
-    com:
-      yznu:
-        qinggua: debug
+#logging:
+#  level:
+#    com:
+#      yznu:
+#        qinggua: debug
 
 #mybatis-plus:
 #  mapper-locations: classpath:mapper.admin/*.xml
