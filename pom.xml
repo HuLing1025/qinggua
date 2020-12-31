@@ -103,6 +103,8 @@
     </dependencies>
 
     <build>
+        <!-- 打包文件名 -->
+        <finalName>qinggua</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
