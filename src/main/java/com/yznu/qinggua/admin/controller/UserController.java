@@ -6,6 +6,7 @@ import com.yznu.qinggua.admin.service.IUserService;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,7 @@ public class UserController {
     * 获取用户列表
     * @return
     * */
+    @ApiOperation(value = "获取用户列表" )
     @GetMapping("/user")
     public Result getUserList() {
         try{
@@ -49,6 +51,7 @@ public class UserController {
     * @param id
     * @return
     * */
+    @ApiOperation(value = "根据ID获取用户")
     @GetMapping("/user/{id}")
     public Result getUserById(@PathVariable String id) {
         try{
@@ -68,6 +71,7 @@ public class UserController {
     * @param
     * @return
     * */
+    @ApiOperation(value = "新增用户")
     @PostMapping("/user")
     public Result addUser(@RequestBody User user) {
         try{
@@ -93,6 +97,7 @@ public class UserController {
     * @param user
     * @return
     * */
+    @ApiOperation(value = "修改用户信息")
     @PutMapping("/user/{id}")
     public Result updateUser(@PathVariable int id, @RequestBody User user) {
         try{
@@ -112,6 +117,7 @@ public class UserController {
     * @param id
     * @return
     * */
+    @ApiOperation(value = "根据ID删除用户")
     @DeleteMapping("/user/{id}")
     public Result deleteUser(@PathVariable int id) {
         try{
@@ -130,6 +136,7 @@ public class UserController {
     * @param ids
     * @return
     * */
+    @ApiOperation(value = "批量删除用户")
     @DeleteMapping("/user")
     public Result deleteUsers(@RequestBody List<Integer> ids) {
         try{
