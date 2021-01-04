@@ -43,7 +43,7 @@ public class SwaggerConfig {
                 //版本号
                 .version("1.0")
                 //描述
-                .description("青瓜电影院购票系统API文档")
+                .description("青瓜电影院购票系统后端API文档")
                 .build();
     }
 }
