@@ -42,23 +42,23 @@
             <version>2.1.4</version>
         </dependency>
         <!-- mybatis -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>1.2.0</version>
-        </dependency>-->
+        </dependency>
         <!-- mybatis-plus -->
-        <dependency>
+       <!-- <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.1.0</version>
         </dependency>
-        <!-- mybatis-plus-generator -->
+        &lt;!&ndash; mybatis-plus-generator &ndash;&gt;
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
             <version>3.3.1</version>
-        </dependency>
+        </dependency>-->
         <!-- swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
