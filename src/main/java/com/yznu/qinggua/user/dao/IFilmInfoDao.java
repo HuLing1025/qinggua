@@ -11,14 +11,14 @@ public interface IFilmInfoDao {
 
     @Select("SELECT * " +
             "FROM filmInfo " +
-            "ORDER BY releaseTime")
+            "ORDER BY releaseTime DESC")
     List<Map<String, Object>> selectAllFilm();
 
     @Select("SELECT * FROM filmInfo " +
             "WHERE title LIKE CONCAT(CONCAT('%',#{search},'%')) " +
             "OR director LIKE CONCAT(CONCAT('%',#{search},'%')) " +
             "OR type LIKE CONCAT(CONCAT('%',#{search},'%')) " +
-            "ORDER BY releaseTime")
+            "ORDER BY releaseTime DESC")
     List<Map<String, Object>> searchFilm(String search);
 
     @Select("SELECT * FROM filmInfo WHERE id=#{id}")
