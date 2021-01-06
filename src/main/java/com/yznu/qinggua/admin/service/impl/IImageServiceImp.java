@@ -1,13 +1,17 @@
 package com.yznu.qinggua.admin.service.impl;
 
-import com.yznu.qinggua.admin.service.IUploadImg;
+import com.yznu.qinggua.admin.service.IImageService;
 import com.yznu.qinggua.utils.Globle;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 
 /**
@@ -19,7 +23,7 @@ import java.util.HashMap;
  * @since 2020-12-22
  */
 @Service
-public class UploadImgImp implements IUploadImg {
+public class IImageServiceImp implements IImageService {
     @Override
     public HashMap<String, Object> upload(HttpServletRequest req, MultipartFile file) {
         HashMap<String, Object> result = new HashMap<>();
@@ -54,6 +58,21 @@ public class UploadImgImp implements IUploadImg {
             result.put("flag", false);
             result.put("message", e);
             return result;
+        }
+    }
+
+    @Override
+    public Resource download(String filename) {
+        try {
+            Path path =  Paths.get(Globle.FILEPATH).toAbsolutePath().resolve(filename).normalize();
+            UrlResource resource = new UrlResource(path.toUri());
+            if (resource.exists()) {
+                return resource;
+            }
+            return null;
+        }catch (Exception e) {
+            System.out.println("文件下载异常: " + e);
+            return null;
         }
     }
 }
