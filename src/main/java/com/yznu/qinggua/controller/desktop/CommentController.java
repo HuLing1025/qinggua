@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@Api(tags = "评论操作接口")
+@Api(tags = "客户端评论操作接口")
 @RestController
 @RequestMapping("/desktop/comment")
 public class CommentController {
