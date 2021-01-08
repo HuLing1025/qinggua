@@ -23,16 +23,27 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
     @Bean
-    public Docket createRestApi() {
+    public Docket createRestApiDesktop() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
                 //为当前包路径
-                .apis(RequestHandlerSelectors.basePackage("com.yznu.qinggua"))
+                .apis(RequestHandlerSelectors.basePackage("com.yznu.qinggua.controller.desktop"))
                 .paths(PathSelectors.any())
-                .build();
-        //  return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class)).build();
+                .build().groupName("desktop");
     }
+
+    @Bean
+    public Docket createRestApiCms() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .select()
+                //为当前包路径
+                .apis(RequestHandlerSelectors.basePackage("com.yznu.qinggua.controller.admin"))
+                .paths(PathSelectors.any())
+                .build().groupName("cms");
+    }
+
     //构建 api文档的详细信息函数,注意这里的注解引用的是哪个
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
