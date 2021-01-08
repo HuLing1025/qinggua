@@ -3,6 +3,7 @@ package com.yznu.qinggua.service.serviceImpl;
 import com.yznu.qinggua.dao.IUserDao;
 import com.yznu.qinggua.pojo.User;
 import com.yznu.qinggua.service.IUserService;
+import com.yznu.qinggua.utils.MD5;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class UserServiceImpl implements IUserService {
             }
             // 设置注册时间 +8h
             user.setRegtime(new Date());
+            // MD5加密
+            user.setPwd(MD5.getMD5(user.getPwd()));
             int mount = iUserDao.insertOne(user);
             if(mount == 1){
                 return ResponseUtil.success(200,"注册成功!");
@@ -46,6 +49,8 @@ public class UserServiceImpl implements IUserService {
             if(user.size() == 0){
                 return ResponseUtil.error(400, "用户名不存在!");
             }
+            // MD5加密
+            pwd = MD5.getMD5(pwd);
             // 验证密码
             if(user.get(0).get("pwd").equals(pwd)){
                 return ResponseUtil.success(user.get(0), 200, "登录成功!");
