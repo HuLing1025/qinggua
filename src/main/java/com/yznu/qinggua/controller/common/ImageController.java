@@ -1,4 +1,4 @@
-package com.yznu.qinggua.controller;
+package com.yznu.qinggua.controller.common;
 
 import com.yznu.qinggua.service.IImageService;
 import com.yznu.qinggua.utils.ResponseUtil;
@@ -29,14 +29,14 @@ import java.util.HashMap;
  */
 @Api(tags = "文件上传接口")
 @RestController
-@RequestMapping("/uoload")
+@RequestMapping("/common")
 public class ImageController {
 
     @Autowired
     IImageService iImageService;
 
     @ApiOperation(value = "上传图片")
-    @PostMapping("/upload")
+    @PostMapping("/image/upload")
     public Result uploadImage(HttpServletRequest req, @RequestParam("file") MultipartFile file) {
         HashMap<String,Object> result = iImageService.upload(req, file);
         if((boolean) result.get("flag")){

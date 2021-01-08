@@ -3,7 +3,7 @@ package com.yznu.qinggua.service;
 import com.yznu.qinggua.pojo.User;
 import com.yznu.qinggua.utils.Result;
 
-public interface ICountService {
+public interface IUserService {
     /**
      * 注册
      * @param user
@@ -18,6 +18,19 @@ public interface ICountService {
     * @return
     * */
    Result login(String name, String pwd);
+
+   /**
+    * 获取用户列表
+    * @return
+    * */
+   Result getUserList();
+
+   /**
+    * 根据用户名查询用户列表
+    * @param name
+    * @return
+    * */
+   Result searchUsersByName(String name);
 
    /**
     * 修改基本信息

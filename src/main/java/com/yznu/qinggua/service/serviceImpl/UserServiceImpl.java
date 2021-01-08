@@ -2,7 +2,7 @@ package com.yznu.qinggua.service.serviceImpl;
 
 import com.yznu.qinggua.dao.IUserDao;
 import com.yznu.qinggua.pojo.User;
-import com.yznu.qinggua.service.ICountService;
+import com.yznu.qinggua.service.IUserService;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class CountServiceImpl implements ICountService {
+public class UserServiceImpl implements IUserService {
     @Autowired
     IUserDao iUserDao;
 
@@ -54,6 +54,34 @@ public class CountServiceImpl implements ICountService {
             }
         }catch (Exception e){
             return ResponseUtil.error(500, "登录失败,异常: " + e);
+        }
+    }
+
+    @Override
+    public Result getUserList() {
+        try {
+            // 查询列表
+            List<Map<String, Object>> users = iUserDao.selectUsersList();
+            if (users.size() == 0) {
+                return ResponseUtil.error(400, "用户列表为空!");
+            }
+            return ResponseUtil.success(users, 200, "查询用户列表成功!");
+        }catch (Exception e) {
+            return ResponseUtil.error(500, "查询用户列表失败,异常: " + e);
+        }
+    }
+
+    @Override
+    public Result searchUsersByName(String name) {
+        try {
+            // 根据用户名查列表
+            List<Map<String, Object>> users = iUserDao.searchUsersByName(name);
+            if (users.size() == 0) {
+                return ResponseUtil.error(400, "用户列表为空!");
+            }
+            return ResponseUtil.success(users, 200, "根据用户名查询用户列表成功!");
+        }catch (Exception e) {
+            return ResponseUtil.error(500, "根据用户名查询用户列表失败,异常: " + e);
         }
     }
 
