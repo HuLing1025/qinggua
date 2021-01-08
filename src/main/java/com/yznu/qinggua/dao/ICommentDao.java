@@ -11,6 +11,12 @@ public interface ICommentDao {
 
     @Select("SELECT c.content,c.createTime,u.name " +
             "FROM comment c,user u " +
+            "WHERE c.uid=u.id " +
+            "ORDER BY c.createTime DESC")
+    List<Map<String, Object>> selectCommentList();
+
+    @Select("SELECT c.content,c.createTime,u.name " +
+            "FROM comment c,user u " +
             "WHERE c.fid=#{fid} AND c.uid=u.id " +
             "ORDER BY c.createTime DESC")
     List<Map<String, Object>> selectCommentsByFid(int fid);

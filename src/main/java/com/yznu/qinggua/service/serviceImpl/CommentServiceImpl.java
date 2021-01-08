@@ -17,6 +17,20 @@ public class CommentServiceImpl implements ICommentService {
     ICommentDao iCommentDao;
 
     @Override
+    public Result getCommentList() {
+        try {
+            // 查询全部
+            List<Map<String, Object>> comments = iCommentDao.selectCommentList();
+            if (comments.size() != 0) {
+                return ResponseUtil.success(comments, 200, "获取全部评论成功!");
+            }
+            return ResponseUtil.error(400, "评论列表为空!");
+        }catch (Exception e) {
+            return ResponseUtil.error(500, "获取全部评论列表失败,异常: " + e);
+        }
+    }
+
+    @Override
     public Result getCommentsByFid(int fid) {
         try {
             // 根据电影ID查询
