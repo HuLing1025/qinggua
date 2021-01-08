@@ -6,6 +6,13 @@ import com.yznu.qinggua.utils.Result;
 import java.util.List;
 
 public interface ICommentService {
+
+    /**
+     * 查询全部评论
+     * @return
+     * */
+    Result getCommentList();
+
     /**
      * 根据电影ID获取评论列表
      * @param fid
