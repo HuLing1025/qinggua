@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@Api(tags = "后台管理电影管理接口")
+@Api(tags = "后台电影管理接口")
 @RestController
 @RequestMapping("/cms/film")
 public class CmsFilmInfoController {
