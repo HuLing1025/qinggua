@@ -1,4 +1,4 @@
-package com.yznu.qinggua.controller;
+package com.yznu.qinggua.controller.desktop;
 
 import com.yznu.qinggua.pojo.Comment;
 import com.yznu.qinggua.service.ICommentService;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Api(tags = "评论操作接口")
 @RestController
-@RequestMapping("/comment")
+@RequestMapping("/desktop/comment")
 public class CommentController {
     @Autowired
     ICommentService iCommentService;

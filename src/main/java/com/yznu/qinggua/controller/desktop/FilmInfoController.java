@@ -1,4 +1,4 @@
-package com.yznu.qinggua.controller;
+package com.yznu.qinggua.controller.desktop;
 
 import com.yznu.qinggua.pojo.Filminfo;
 import com.yznu.qinggua.service.IFilmInfoService;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Api(tags = "客户端电影操作接口")
 @RestController
-@RequestMapping("/film")
+@RequestMapping("/desktop/film")
 public class FilmInfoController {
     @Autowired
     IFilmInfoService iFilmInfoService;

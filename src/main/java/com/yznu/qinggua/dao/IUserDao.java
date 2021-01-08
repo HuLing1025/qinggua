@@ -15,6 +15,11 @@ public interface IUserDao {
 
     @Select("SELECT * " +
             "FROM user " +
+            "ORDER BY regTime")
+    List<Map<String, Object>> selectUsersList();
+
+    @Select("SELECT * " +
+            "FROM user " +
             "WHERE id=#{id}"
     )
     User selectUserById(int id);
@@ -23,6 +28,12 @@ public interface IUserDao {
             "FROM user " +
             "WHERE name=#{name}")
     List<Map<String, Object>> selectUserByName(String name);
+
+    @Select("SELECT * " +
+            "FROM user " +
+            "WHERE name LIKE CONCAT(CONCAT('%',#{name},'%')) " +
+            "ORDER BY regTime")
+    List<Map<String, Object>> searchUsersByName(String name);
 
     @Update("UPDATE user " +
             "SET name=#{name}," +

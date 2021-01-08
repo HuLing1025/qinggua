@@ -1,4 +1,4 @@
-package com.yznu.qinggua.controller;
+package com.yznu.qinggua.controller.desktop;
 
 import com.yznu.qinggua.pojo.Ticket;
 import com.yznu.qinggua.service.ITicketService;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Api(tags = "客户端电影票操作接口")
 @RestController
-@RequestMapping("/ticket")
+@RequestMapping("/desktop/ticket")
 public class TicketController {
 
     @Autowired
