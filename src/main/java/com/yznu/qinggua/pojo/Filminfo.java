@@ -15,6 +15,9 @@ public class Filminfo {
 
     private String title;
 
+    // new
+    private String score;
+
     private String director;
 
     private String actors;
@@ -23,12 +26,15 @@ public class Filminfo {
 
     private String type;
 
-    private long duration;
+    private int duration;
 
     private Date releaseTime;
 
     private String image;
 
     private String details;
+
+    // new
+    private int voteCount;
 
 }

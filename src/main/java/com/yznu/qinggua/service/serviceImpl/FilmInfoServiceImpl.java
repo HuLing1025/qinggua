@@ -62,6 +62,18 @@ public class FilmInfoServiceImpl implements IFilmInfoService {
     }
 
     @Override
+    public Result isFilmExists(String title) {
+        try {
+            if (iFilmInfoDao.isFilmExists(title) != 1) {
+                return ResponseUtil.error(400, "该电影不存在!");
+            }
+            return ResponseUtil.success(200, "该电影已经存在!");
+        } catch (Exception e) {
+            return ResponseUtil.error(500, "异常: " + e);
+        }
+    }
+
+    @Override
     public Result addFilm(Filminfo filminfo) {
         try{
             // 添加
