@@ -38,9 +38,9 @@ public class Analyticaldata {
                // 国家地区
                filminfo.setCountry( movie.attr("data-region"));
                // 导演
-               filminfo.setDirector(movie.attr("data-director"));
+               filminfo.setDirector(movie.attr("data-director").replace(" ",""));
                // 主演
-               filminfo.setActors(movie.attr("data-actors"));
+               filminfo.setActors(movie.attr("data-actors").replace(" ",""));
                // 评价人数
                String voteCount = movie.attr("data-votecount");
                filminfo.setVoteCount(Integer.parseInt(!voteCount.equals("") ? voteCount : "0"));
@@ -56,11 +56,11 @@ public class Analyticaldata {
                    // 类型
                    String[] types = new String[0];
                    types = detailDoc.select("span[property=\"v:genre\"]").eachText().toArray(types);
-                   String detail = "";
+                   String typeString = "";
                    for (String temp : types){
-                       detail += temp + "/";
+                       typeString += temp + "/";
                    }
-                   filminfo.setType(detail);
+                   filminfo.setType(typeString.replace(" ",""));
                    // 上映时间
                    filminfo.setReleaseTime(new Date(detailDoc.select("span[property=\"v:initialReleaseDate\"]").text().substring(0, 10).replace("-", "/")));
                    // 电影简介

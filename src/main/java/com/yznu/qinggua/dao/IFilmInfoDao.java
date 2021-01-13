@@ -34,12 +34,15 @@ public interface IFilmInfoDao {
     int insertOne(Filminfo filmInfo);
 
     @Update("UPDATE filmInfo SET " +
-            "title=#{title},director=#{director}," +
-            "actors=#{actors},country=#{country}," +
-            "type=#{type},duration=#{duration}," +
-            "releaseTime=#{releaseTime},image=#{image}," +
-            "details=#{details} " +
-            "WHERE id=#{id}")
+            //"title=#{title},director=#{director}," +
+            //"actors=#{actors},country=#{country}," +
+            //"type=#{type}," +
+            "duration=#{duration}," +
+            //"releaseTime=#{releaseTime},image=#{image}," +
+            //"details=#{details} " +
+            "score=#{score}," +
+            "votecount=#{voteCount} " +
+            "WHERE title=#{title}")
     int updateFilm(Filminfo filmInfo);
 
     @Delete("DELETE FROM filmInfo " +
