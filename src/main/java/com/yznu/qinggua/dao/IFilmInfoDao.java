@@ -24,8 +24,13 @@ public interface IFilmInfoDao {
     @Select("SELECT * FROM filmInfo WHERE id=#{id}")
     Filminfo selectFilmById(int id);
 
-    @Insert("INSERT INTO filmInfo(id,title,director,actors,country,type,duration,releaseTime,image,details) " +
-            "VALUES(id,#{title},#{director},#{actors},#{country},#{type},#{duration},#{releaseTime},#{image},#{details})")
+    @Select("SELECT count(*) " +
+            "FROM filminfo " +
+            "WHERE title=#{title}")
+    int isFilmExists(String title);
+
+    @Insert("INSERT INTO filmInfo(id,title,director,actors,country,type,duration,releaseTime,image,details,score,votecount) " +
+            "VALUES(id,#{title},#{director},#{actors},#{country},#{type},#{duration},#{releaseTime},#{image},#{details},#{score},#{voteCount})")
     int insertOne(Filminfo filmInfo);
 
     @Update("UPDATE filmInfo SET " +

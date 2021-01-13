@@ -27,6 +27,13 @@ public interface IFilmInfoService {
     Result getFilmById(int id);
 
     /**
+     * 电影是否存在
+     * @param title
+     * @return
+     * */
+    Result isFilmExists(String title);
+
+    /**
      * 新增电影
      * @param filminfo
      * @return

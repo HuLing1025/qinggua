@@ -1,7 +1,7 @@
 package com.yznu.qinggua.service.serviceImpl;
 
 import com.yznu.qinggua.service.IImageService;
-import com.yznu.qinggua.utils.Globle;
+import com.yznu.qinggua.utils.Global;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -36,7 +36,7 @@ public class ImageServiceImp implements IImageService {
             // 根据时间戳重组文件名
             String fileName = System.currentTimeMillis() + file.getOriginalFilename();
             // 文件保存路径
-            String destFileName = Globle.FILEPATH + File.separator + fileName;
+            String destFileName = Global.FILEPATH + File.separator + fileName;
             File destFile = new File(destFileName);
             // 不存在文件夹则创建
             if(!destFile.getParentFile().exists()){
@@ -64,7 +64,7 @@ public class ImageServiceImp implements IImageService {
     @Override
     public Resource download(String filename) {
         try {
-            Path path =  Paths.get(Globle.FILEPATH).toAbsolutePath().resolve(filename).normalize();
+            Path path =  Paths.get(Global.FILEPATH).toAbsolutePath().resolve(filename).normalize();
             UrlResource resource = new UrlResource(path.toUri());
             if (resource.exists()) {
                 return resource;
