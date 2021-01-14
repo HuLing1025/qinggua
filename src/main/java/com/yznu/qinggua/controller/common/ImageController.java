@@ -4,6 +4,7 @@ import com.yznu.qinggua.service.IImageService;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -36,6 +37,7 @@ public class ImageController {
     IImageService iImageService;
 
     @ApiOperation(value = "上传图片")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @PostMapping("/image/upload")
     public Result uploadImage(HttpServletRequest req, @RequestParam("file") MultipartFile file) {
         HashMap<String,Object> result = iImageService.upload(req, file);
@@ -47,6 +49,7 @@ public class ImageController {
     }
 
     @ApiOperation(value = "下载图片")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @GetMapping("/image/{filename}")
     public ResponseEntity<Resource> downloadImage(@PathVariable String filename, HttpServletRequest request) throws MalformedURLException, UnsupportedEncodingException {
         Resource resource = iImageService.download(filename);
