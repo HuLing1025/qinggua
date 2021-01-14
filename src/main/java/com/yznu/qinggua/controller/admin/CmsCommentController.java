@@ -3,6 +3,7 @@ package com.yznu.qinggua.controller.admin;
 import com.yznu.qinggua.service.ICommentService;
 import com.yznu.qinggua.utils.Result;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ public class CmsCommentController {
     ICommentService iCommentService;
 
     @ApiOperation(value = "获取全部评论")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @GetMapping("/")
     public Result getCommentList() {
         return iCommentService.getCommentList();

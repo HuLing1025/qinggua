@@ -5,6 +5,7 @@ import com.yznu.qinggua.pojo.User;
 import com.yznu.qinggua.service.IUserService;
 import com.yznu.qinggua.utils.Result;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,30 +32,35 @@ public class UserController {
     }
 
     @ApiOperation(value = "修改账户基本信息")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @PutMapping("/updateinfo")
     public Result updateInfo(@RequestBody User user) {
         return iUserService.updateBaseInfo(user);
     }
 
     @ApiOperation(value = "修改密码")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @PutMapping("/updatepwd")
     public Result updatePwd(@RequestBody Map<String, Object> params) {
         return iUserService.updatePwd((int)params.get("id"), (String)params.get("pwdOld"), (String)params.get("pwdNew"));
     }
 
     @ApiOperation(value = "账户充值")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @PutMapping("/recharge")
     public Result recharge(@RequestBody Map<String, Object> params) {
         return iUserService.recharge((int)params.get("id"), new Float(params.get("price").toString()));
     }
 
     @ApiOperation(value = "账户消费")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @PutMapping("/consumption")
     public Result consumption(@RequestBody Map<String, Object> params) {
         return iUserService.consumption((int)params.get("id"), new Float(params.get("price").toString()));
     }
 
     @ApiOperation(value = "注销账户")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @DeleteMapping("/{id}")
     public Result logout(@PathVariable int id) {
         return iUserService.logout(id);

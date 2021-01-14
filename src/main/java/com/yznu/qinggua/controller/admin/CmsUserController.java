@@ -3,6 +3,7 @@ package com.yznu.qinggua.controller.admin;
 import com.yznu.qinggua.service.IUserService;
 import com.yznu.qinggua.utils.Result;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +19,14 @@ public class CmsUserController {
     IUserService iUserService;
 
     @ApiOperation("获取用户列表")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @GetMapping("/")
     public Result getUserList() {
         return iUserService.getUserList();
     }
 
     @ApiOperation("根据用户名获取用户列表")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @GetMapping("/{name}")
     public Result getUsersByName(@PathVariable String name) {
         return iUserService.searchUsersByName(name);
