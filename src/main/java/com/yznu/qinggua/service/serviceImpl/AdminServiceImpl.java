@@ -3,12 +3,14 @@ package com.yznu.qinggua.service.serviceImpl;
 import com.yznu.qinggua.dao.IAdminDao;
 import com.yznu.qinggua.pojo.Admin;
 import com.yznu.qinggua.service.IAdminService;
+import com.yznu.qinggua.utils.JwtUtil;
 import com.yznu.qinggua.utils.MD5;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -73,7 +75,13 @@ public class AdminServiceImpl implements IAdminService {
             if (admin != null) {
                 // 验证密码
                 if (admin.getPwd().equals(MD5.getMD5(pwd))){
-                    return ResponseUtil.success(admin, 200, "登录成功!");
+                    Map<String, Object> result = new HashMap<>();
+                    result.put("user", admin);
+                    // 获取token
+                    HashMap<String, String> token = new HashMap<>();
+                    token.put("username", admin.getName());
+                    result.put("token", JwtUtil.getToken(token));
+                    return ResponseUtil.success(result, 200, "登录成功!");
                 }
                 return ResponseUtil.error(400, "密码错误!");
             }else{
