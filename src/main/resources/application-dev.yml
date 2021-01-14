@@ -1,5 +1,10 @@
 server:
   port: 8088
+  servlet:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

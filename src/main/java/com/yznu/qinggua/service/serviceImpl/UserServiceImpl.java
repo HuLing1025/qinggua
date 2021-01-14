@@ -3,6 +3,7 @@ package com.yznu.qinggua.service.serviceImpl;
 import com.yznu.qinggua.dao.IUserDao;
 import com.yznu.qinggua.pojo.User;
 import com.yznu.qinggua.service.IUserService;
+import com.yznu.qinggua.utils.JwtUtil;
 import com.yznu.qinggua.utils.MD5;
 import com.yznu.qinggua.utils.ResponseUtil;
 import com.yznu.qinggua.utils.Result;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -53,7 +55,13 @@ public class UserServiceImpl implements IUserService {
             pwd = MD5.getMD5(pwd);
             // 验证密码
             if(user.get(0).get("pwd").equals(pwd)){
-                return ResponseUtil.success(user.get(0), 200, "登录成功!");
+                Map<String, Object> result = new HashMap<>();
+                result.put("user", user.get(0));
+                // 获取token
+                HashMap<String, String> token = new HashMap<>();
+                token.put("username", (String)user.get(0).get("name"));
+                result.put("token", JwtUtil.getToken(token));
+                return ResponseUtil.success(result, 200, "登录成功!");
             }else{
                 return ResponseUtil.error(400, "密码错误!");
             }
