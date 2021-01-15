@@ -61,7 +61,7 @@ public class SpiderSchedule {
                 }
             }
             // 发送钉钉群消息
-            ddRobot.post(JsonTool.getMessJson("爬取总量: " + films.size() + "\n更新数:"  + update + "\n失败数: "  + error));
+            ddRobot.post(JsonTool.getMessJson("\n爬取总量: " + films.size() + "\n更新数: "  + update + "\n新增数: " + (films.size() - update - error) + "\n失败数: "  + error));
         }
         // 正在热映和即将上映的电影class都为'list-item',故不需要单独处理即将上映电影
         // 获取即将上映的页面

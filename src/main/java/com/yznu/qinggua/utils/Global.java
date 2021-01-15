@@ -8,7 +8,7 @@ public class Global {
     // 豆瓣正在热映URL(爬虫入口地址)
     public static final String BASEURL1 = "https://movie.douban.com/cinema/nowplaying/chongqing/";
     // 豆瓣即将上映URL(爬虫入口地址)
-    public static final String BASEURL2 = "https://movie.douban.com/cinema/later/chongqing/";
+    // public static final String BASEURL2 = "https://movie.douban.com/cinema/later/chongqing/";
     // 定时器参数(每天20点执行)
     public static final String CROONERS = "0 00 20 * * ?";
     // 钉钉机器人webhook
