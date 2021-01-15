@@ -15,8 +15,8 @@ public class JwtUtil {
     // 加密token
     public static String getToken(Map<String, String> map) {
         Calendar instance = Calendar.getInstance();
-        // 有效期为30分钟
-        instance.add(Calendar.SECOND, 1800);
+        // 有效期为5小时
+        instance.add(Calendar.SECOND, 18000);
 
         // 创建 JWT builder
         JWTCreator.Builder builder = JWT.create();
