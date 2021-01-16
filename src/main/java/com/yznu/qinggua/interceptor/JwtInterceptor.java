@@ -21,7 +21,7 @@ public class JwtInterceptor implements HandlerInterceptor {
         if(token == null){
             map.put("data","");
             map.put("status", 500);
-            map.put("msg", "Header中无token!");
+            map.put("message", "Header中无token!");
         }else{
             try {
                 // 验证令牌
@@ -30,16 +30,16 @@ public class JwtInterceptor implements HandlerInterceptor {
                 return true;
             } catch (SignatureVerificationException e) {
                 e.printStackTrace();
-                map.put("msg", "Invalid signature!");
+                map.put("message", "Invalid signature!");
             } catch (TokenExpiredException e){
                 e.printStackTrace();
-                map.put("msg", "Token expired!");
+                map.put("message", "Token expired!");
             }catch (ArithmeticException e){
                 e.printStackTrace();
-                map.put("msg", "Token inconsistent algorithms!");
+                map.put("message", "Token inconsistent algorithms!");
             }catch (Exception e){
                 e.printStackTrace();
-                map.put("msg", "Token verification failed!");
+                map.put("message", "Token verification failed!");
             }
             // 失败状态
             map.put("status", 500);
