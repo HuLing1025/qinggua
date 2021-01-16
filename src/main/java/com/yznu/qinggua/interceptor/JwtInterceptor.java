@@ -20,7 +20,7 @@ public class JwtInterceptor implements HandlerInterceptor {
 
         if(token == null){
             map.put("data","");
-            map.put("status", 500);
+            map.put("code", 500);
             map.put("message", "Header中无token!");
         }else{
             try {
@@ -42,10 +42,10 @@ public class JwtInterceptor implements HandlerInterceptor {
                 map.put("message", "Token verification failed!");
             }
             // 失败状态
-            map.put("status", 500);
+            map.put("code", 500);
             map.put("data","");
         }
-        if((Integer) map.get("status") == 500){
+        if((Integer) map.get("code") == 500){
             String text = new ObjectMapper().writeValueAsString(map);
             JSONObject responseJSONObject = JSONObject.parseObject(text);
             response.setContentType("application/json; charset=utf-8");
