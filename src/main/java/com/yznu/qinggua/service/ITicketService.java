@@ -6,6 +6,27 @@ import com.yznu.qinggua.utils.Result;
 import java.util.List;
 
 public interface ITicketService {
+
+    /**
+     * 获取所有电影票
+     * @return
+     * */
+    Result getTicketList();
+
+    /**
+     * 根据电影ID获取电影票
+     * @param fid
+     * @return
+     * */
+    Result getTicketsByFid(int fid);
+
+    /**
+     * 根据支付状态获取电影票
+     * @param flag
+     * @return
+     * */
+    Result getTicketsByFlag(int flag);
+
     /**
      * 查询当前用户下购买的电影票
      * @param uid
@@ -33,6 +54,20 @@ public interface ITicketService {
      * @return
      * */
     Result pay(int id);
+
+    /**
+     * 退票
+     * @param id
+     * @return
+     * */
+    Result refund(int id);
+
+    /**
+     * 申请退票
+     * @param id
+     * @return
+     * */
+    Result refundRequest(int id);
 
     /**
      * 根据ID删除电影票

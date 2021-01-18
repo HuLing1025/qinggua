@@ -48,6 +48,13 @@ public class TicketController {
         return iTicketService.pay(id);
     }
 
+    @ApiOperation(value = "退票申请")
+    @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
+    @PutMapping("/tid/{id}")
+    public Result refundApplication(@PathVariable int id) {
+        return iTicketService.refundRequest(id);
+    }
+
     @ApiOperation(value = "根据ID删除电影票")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
     @DeleteMapping("/{id}")
