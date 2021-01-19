@@ -19,8 +19,8 @@ public class SpiderSchedule {
     @Autowired
     DDRobot ddRobot;
 
-    @Scheduled(cron = Global.CROONERS)
-    public void spiderWork() throws InterruptedException {
+    @Scheduled(cron = Global.CROONERS2SPIDER)
+    private void spiderWork() throws InterruptedException {
         ddRobot.post(JsonTool.getMessJson("开始爬取: " + Global.BASEURL1));
         // 获取正在热映页面
         Document doc1 = HttpClientDownPage.sendGet(Global.BASEURL1);

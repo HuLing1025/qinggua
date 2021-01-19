@@ -18,6 +18,8 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/desktop/user/logon")
                 // 不拦截客户端放映计划接口
                 .excludePathPatterns("/desktop/schedule/**")
+                // 不拦截客户端搜索电影接口
+                .excludePathPatterns("desktop/film/**")
                 // 不拦截后台登录注册接口
                 .excludePathPatterns("/cms/admin/login")
                 .excludePathPatterns("/cms/admin/logon")
