@@ -15,6 +15,12 @@ public class FilmInfoController {
     @Autowired
     IFilmInfoService iFilmInfoService;
 
+    @ApiOperation(value = "获取电影列表")
+    @GetMapping("")
+    public Result getFIlmList() {
+        return iFilmInfoService.getFilmList();
+    }
+
     @ApiOperation(value = "搜索电影", notes = "匹配标题、导演、演员")
     @PostMapping("/{search}")
     public Result searchFilms(@PathVariable String search) {
