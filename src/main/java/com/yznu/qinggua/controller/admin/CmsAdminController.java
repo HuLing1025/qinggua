@@ -21,7 +21,7 @@ public class CmsAdminController {
 
     @ApiOperation(value = "获取管理员列表")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @GetMapping("/")
+    @GetMapping("")
     public Result getAdminList() {
         return iAdminService.getAdminList();
     }
@@ -68,7 +68,7 @@ public class CmsAdminController {
 
     @ApiOperation(value = "批量删除管理员")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @DeleteMapping("/")
+    @DeleteMapping("")
     public Result deleteAdmins(@RequestBody Map<String, Object> param) {
         return iAdminService.deleteAdminList((List<Integer>) param.get("ids"));
     }

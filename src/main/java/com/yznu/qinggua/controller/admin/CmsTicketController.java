@@ -18,7 +18,7 @@ public class CmsTicketController {
 
     @ApiOperation(value = "获取全部电影票")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @GetMapping("/")
+    @GetMapping("")
     public Result getTicketList() {
         return iTicketService.getTicketList();
     }

@@ -20,7 +20,7 @@ public class CmsCommentController {
 
     @ApiOperation(value = "获取全部评论")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @GetMapping("/")
+    @GetMapping("")
     public Result getCommentList() {
         return iCommentService.getCommentList();
     }

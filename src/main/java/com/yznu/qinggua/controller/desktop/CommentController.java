@@ -34,7 +34,7 @@ public class CommentController {
 
     @ApiOperation(value = "新增评论")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @PostMapping("/")
+    @PostMapping("")
     public Result addComment(@RequestBody Comment comment) {
         return iCommentService.addComment(comment);
     }
@@ -48,7 +48,7 @@ public class CommentController {
 
     @ApiOperation(value = "批量删除评论")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @DeleteMapping("/")
+    @DeleteMapping("")
     public Result deleteComments(@RequestBody Map<String, Object> params) {
         return iCommentService.deleteComments((List<Integer>)params.get("ids"));
     }

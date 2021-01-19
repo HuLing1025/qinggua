@@ -21,7 +21,7 @@ public class CmsFilmInfoController {
 
     @ApiOperation(value = "获取全部电影")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @GetMapping("/")
+    @GetMapping("")
     public Result getAllFilm() {
         return iFilmInfoService.getFilmList();
     }
@@ -35,7 +35,7 @@ public class CmsFilmInfoController {
 
     @ApiOperation(value = "添加电影")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @PostMapping("/")
+    @PostMapping("")
     public Result addFilm(@RequestBody Filminfo filminfo) {
         return iFilmInfoService.addFilm(filminfo);
     }
@@ -56,7 +56,7 @@ public class CmsFilmInfoController {
 
     @ApiOperation(value = "批量删除电影", notes = "参数传json对象,其中包含ids(Array类型)")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @DeleteMapping("/")
+    @DeleteMapping("")
     public Result deleteFilms(@RequestBody Map<String, Object> params) {
         return iFilmInfoService.deleteFilms((List<Integer>)params.get("ids"));
     }

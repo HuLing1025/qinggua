@@ -20,7 +20,7 @@ public class CmsUserController {
 
     @ApiOperation("获取用户列表")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @GetMapping("/")
+    @GetMapping("")
     public Result getUserList() {
         return iUserService.getUserList();
     }

@@ -29,21 +29,21 @@ public class TicketController {
 
     @ApiOperation(value = "根据ID获取电影票信息")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Result getTicketById(@PathVariable int id) {
         return iTicketService.getTicketById(id);
     }
 
     @ApiOperation(value = "生成一张电影票")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @PostMapping("/")
+    @PostMapping("")
     public Result addTicket(@RequestBody Ticket ticket) {
         return iTicketService.addTicket(ticket);
     }
 
     @ApiOperation(value = "电影票付款")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @PutMapping("/{id}")
+    @PutMapping("/id/{id}")
     public Result pay(@PathVariable int id) {
         return iTicketService.pay(id);
     }
@@ -64,7 +64,7 @@ public class TicketController {
 
     @ApiOperation(value = "批量删除电影票", notes = "参数传json对象,其中包含ids(Array类型)")
     @ApiImplicitParam(paramType = "header", dataType = "String", name = "token", value = "登录令牌", required = true)
-    @DeleteMapping("/")
+    @DeleteMapping("")
     public Result deleteTickets(@RequestBody Map<String, Object> params) {
         return iTicketService.deleteTickets((List<Integer>)params.get("ids"));
     }
