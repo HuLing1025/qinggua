@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class HttpClientDownPage {
     //设置代理，模范浏览器
-    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36";
+    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0";
 
     public static Document sendGet(String url) {
         //1.生成httpclient，相当于该打开一个浏览器
@@ -32,6 +32,9 @@ public class HttpClientDownPage {
             request.setConfig(requestConfig);
             //3.执行get请求，相当于在输入地址栏后敲回车键
             response = httpClient.execute(request);
+            if(response == null){
+                return null;
+            }
             //4.判断响应状态为200，进行处理
             if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                 //5.获取响应内容
