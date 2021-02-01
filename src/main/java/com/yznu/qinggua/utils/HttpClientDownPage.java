@@ -31,7 +31,11 @@ public class HttpClientDownPage {
             request.setHeader("User-Agent", USER_AGENT);
             request.setConfig(requestConfig);
             //3.执行get请求，相当于在输入地址栏后敲回车键
-            response = httpClient.execute(request);
+            try{
+                response = httpClient.execute(request);
+            }catch (Exception e){
+                return null;
+            }
             if(response == null){
                 return null;
             }
