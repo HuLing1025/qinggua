@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class HttpClientDownPage {
     //设置代理，模范浏览器
-    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0";
+    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50";
 
     public static Document sendGet(String url) {
         //1.生成httpclient，相当于该打开一个浏览器

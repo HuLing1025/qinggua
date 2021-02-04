@@ -71,7 +71,7 @@ public class Analyticaldata {
                films.add(filminfo);
            }catch (Exception e) {
                // 发送预警消息
-               ddRobot.post(JsonTool.getMessJson(e.getMessage()));
+               //ddRobot.post(JsonTool.getMessJson(e.getMessage()));
            }
         }
         return films;
