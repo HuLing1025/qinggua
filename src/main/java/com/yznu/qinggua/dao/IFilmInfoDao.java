@@ -3,11 +3,18 @@ package com.yznu.qinggua.dao;
 import com.yznu.qinggua.pojo.Filminfo;
 import org.apache.ibatis.annotations.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @Mapper
 public interface IFilmInfoDao {
+
+    @Select("SELECT * FROM filmInfo " +
+            "WHERE releaseTime <= #{time} " +
+            "ORDER BY score DESC " +
+            "LIMIT #{begin},#{num}")
+    List<Map<String, Object>> selectNowPlaying(Date time, int begin, int num);
 
     @Select("SELECT * " +
             "FROM filmInfo " +

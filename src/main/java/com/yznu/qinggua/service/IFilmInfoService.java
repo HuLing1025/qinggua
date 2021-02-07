@@ -6,6 +6,15 @@ import com.yznu.qinggua.utils.Result;
 import java.util.List;
 
 public interface IFilmInfoService {
+
+    /**
+     * 分页获取电影
+     * @param num
+     * @param page
+     * @return
+     * */
+    Result getFilminfoPagination(int num, int page);
+
     /**
      * 查询全部电影
      * @return

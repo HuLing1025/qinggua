@@ -8,6 +8,7 @@ import com.yznu.qinggua.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,22 @@ import java.util.Map;
 public class FilmInfoServiceImpl implements IFilmInfoService {
     @Autowired
     IFilmInfoDao iFilmInfoDao;
+
+    @Override
+    public Result getFilminfoPagination(int num, int page) {
+        try {
+            // 计算分页初始值
+            int index = (page - 1) * num;
+            // 分页查找
+            List<Map<String, Object>> films = iFilmInfoDao.selectNowPlaying(new Date(), index, num);
+            if (films.size() != 0){
+                return ResponseUtil.success( films,200, "分页获取电影数据成功!");
+            }
+            return ResponseUtil.error(400, "数据为空!");
+        }catch (Exception e){
+            return ResponseUtil.error(500, "分页获取电影数据失败, 异常: " + e);
+        }
+    }
 
     @Override
     public Result getFilmList() {
