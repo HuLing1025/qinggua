@@ -13,12 +13,15 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class HttpClientDownPage {
-    //设置代理，模范浏览器
-    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50";
 
     public static Document sendGet(String url) {
+        Random random = new Random();
+        int n = random.nextInt(UserAgents.USERAGENT.size());
+        //设置代理，模范浏览器
+        String USER_AGENT = UserAgents.USERAGENT.get(n);
         //1.生成httpclient，相当于该打开一个浏览器
         CloseableHttpClient httpClient = HttpClients.createDefault();
         //设置请求和传输超时时间
@@ -34,9 +37,11 @@ public class HttpClientDownPage {
             try{
                 response = httpClient.execute(request);
             }catch (Exception e){
+                System.out.println("失败.: " + USER_AGENT + "\nURL: " + url);
                 return null;
             }
             if(response == null){
+                System.out.println("失败..: " + USER_AGENT + "\nURL: " + url);
                 return null;
             }
             //4.判断响应状态为200，进行处理
@@ -45,11 +50,13 @@ public class HttpClientDownPage {
                 HttpEntity httpEntity = response.getEntity();
                 html = EntityUtils.toString(httpEntity, "GBK");
             } else {
+                System.out.println("失败...: " + USER_AGENT + "\nURL: " + url);
                 //如果返回状态不是200，比如404（页面不存在）等，根据情况做处理，这里略
                 System.out.println("返回状态不是200");
                 System.out.println(EntityUtils.toString(response.getEntity(), "utf-8"));
             }
         } catch (IOException e) {
+            System.out.println("失败....: " + USER_AGENT + "\nURL: " + url);
             e.printStackTrace();
         } finally {
             //6.关闭
@@ -57,6 +64,7 @@ public class HttpClientDownPage {
             HttpClientUtils.closeQuietly(httpClient);
         }
         if(html == null) {
+            System.out.println("失败.....: " + USER_AGENT + "\nURL: " + url);
             return null;
         }
         Document doc = Jsoup.parse(html);

@@ -24,7 +24,7 @@ public class Analyticaldata {
         for (Element movie : movies) {
            try {
                // 线程静默时间(10s),避免频繁访问接口,导致IP被限制
-               Thread.sleep(5000);
+               //Thread.sleep(5000);
                Filminfo filminfo = new Filminfo();
                // 电影名
                filminfo.setTitle(movie.attr("data-title"));
