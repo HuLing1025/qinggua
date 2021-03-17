@@ -15,6 +15,12 @@ public class FilmInfoController {
     @Autowired
     IFilmInfoService iFilmInfoService;
 
+    @ApiOperation(value = "分页获取电影列表")
+    @GetMapping("/{num}/{page}")
+    public Result getFIlmListPagination(@PathVariable int num, @PathVariable int page) {
+        return iFilmInfoService.getFilminfoPagination(num, page);
+    }
+
     @ApiOperation(value = "获取电影列表")
     @GetMapping("")
     public Result getFIlmList() {
