@@ -21,9 +21,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by daijie on 2019/9/5
- */
 public class BarCodeUtil {
 
 
