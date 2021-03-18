@@ -5,6 +5,7 @@ import java.io.File;
 public class Global {
     // 静态资源存储位置
     public static final String FILEPATH = File.separator +"images";
+    //public static final String FILEPATH = "E:/images/";
     // 豆瓣正在热映URL(爬虫入口地址)
     public static final String BASEURL1 = "https://movie.douban.com/cinema/nowplaying/chongqing/";
     // 豆瓣即将上映URL(爬虫入口地址)
