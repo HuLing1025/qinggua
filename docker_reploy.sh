@@ -9,4 +9,4 @@ docker login  --username=huling1025 --password Huling1025
 # pull the latest image
 docker pull huling1025/qinggua:latest
 # run the latest image and mount the images folder
-docker run -p 8088:8088 --name qinggua_prod -d huling1025/qinggua:latest -v /images:/images
+docker run -v /images/:/images/ -p 8088:8088 --name qinggua_prod -d huling1025/qinggua:latest
