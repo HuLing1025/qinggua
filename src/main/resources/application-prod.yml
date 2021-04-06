@@ -1,22 +1,10 @@
 server:
   port: 8088
   tomcat:
+    basedir: ./
     accesslog:
-      buffered: true
-      directory: logs
       enabled: true
-      file-date-format: .yyyy-MM-dd
-      pattern: common
-      prefix: access_log
-      rename-on-rotate: false
-      request-attributes-enabled: false
-      rotate: true
-      suffix: .log
-  servlet:
-    encoding:
-      force: true
-      charset: utf-8
-      enabled: true
+      pattern: '%h %l %u %t "%r" %s %b %D %{User-Agent}i'
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
