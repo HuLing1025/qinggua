@@ -1,5 +1,17 @@
 server:
   port: 8088
+  tomcat:
+    accesslog:
+      buffered: true
+      directory: ./logs
+      enabled: true
+      file-date-format: .yyyy-MM-dd
+      pattern: common
+      prefix: access_log
+      rename-on-rotate: false
+      request-attributes-enabled: false
+      rotate: true
+      suffix: .log
   servlet:
     encoding:
       force: true
