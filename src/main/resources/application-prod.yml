@@ -3,7 +3,7 @@ server:
   tomcat:
     accesslog:
       buffered: true
-      directory: ./logs
+      directory: logs
       enabled: true
       file-date-format: .yyyy-MM-dd
       pattern: common
