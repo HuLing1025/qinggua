@@ -1,10 +1,5 @@
 server:
   port: 8088
-  tomcat:
-    basedir: ./
-    accesslog:
-      enabled: true
-      pattern: '%h %l %u %t "%r" %s %b %D %{User-Agent}i'
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -23,9 +18,12 @@ spring:
       max-file-size: 100MB
       # once request the max size of file
       max-request-size: 101MB
-# log for mysql
+# logs
 logging:
   level:
+    org:
+      springframework:
+        web: debug
     com:
       yznu:
         qinggua: debug
